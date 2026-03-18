@@ -1,5 +1,5 @@
 [project]
-name = "test-kaspersky"
+name = "word-frequency-report-api"
 version = "0.1.0"
 description = "FastAPI сервис для анализа частотности словоформ в больших текстах с экспортом в excel"
 readme = "README.md"

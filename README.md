@@ -69,7 +69,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 
 ```bash
 git clone <url-репозитория>
-cd test_kaspersky
+cd Word-Frequency-Report-API
 
 # uv автоматически создаст виртуальное окружение .venv и установит все пакеты
 uv sync
@@ -77,7 +77,7 @@ uv sync
 
 ### 3. Запуск сервера
 
-Запускать **только из корневой директории** проекта (`test_kaspersky/`):
+Запускать **только из корневой директории** проекта (`Word-Frequency-Report-API/`):
 
 ```bash
 uv run uvicorn src.app.main:app --reload

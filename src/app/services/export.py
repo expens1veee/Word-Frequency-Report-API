@@ -95,7 +95,7 @@ def process_large_file_process(input_file_path: str) -> str:
             if last_line < num_total_lines:
                 parts.extend(['0'] * (num_total_lines - last_line))
 
-            # Ограничение Excel - 32767 символов на ячейку.
+            # Ограничение excel - 32767 символов на ячейку.
             # Для гигабайтных файлов строка может превысить это значение
             LIMIT = 32000
             result_row = [word_form, total_sum]

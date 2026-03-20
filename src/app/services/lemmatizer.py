@@ -23,7 +23,7 @@ def lemmatize_word(word: str) -> str:
 
 def extract_and_lemmatize(text: str) -> dict:
     """
-    Извлекает все слова из переданной строки текста, нормализует их,
+    Извлекает все слова из переданной строки текста, нормализует их
     и возвращает словарь
     """
     words = WORD_PATTERN.findall(text.lower())

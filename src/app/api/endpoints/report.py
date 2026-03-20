@@ -35,11 +35,10 @@ async def export_report(
     if not file.filename.endswith(".txt"):
          raise HTTPException(status_code=400, detail="Поддерживаются только текстовые файлы (.txt)")
 
-    # Берём пул процессов, созданный в lifespan (main.py)
     process_pool = request.app.state.process_pool
 
-    # Сохраняем загруженный файл во временный файл на диске, так как
-    # не можем передавать файловые объекты между процессами
+    # Сохраняет загруженный файл во временный файл на диске, так как
+    # нельзя передавать файловые объекты между процессами
     # напрямую через ProcessPoolExecutor
     fd, temp_input_path = tempfile.mkstemp(suffix=".txt")
     with os.fdopen(fd, "wb") as f_out:
@@ -54,7 +53,7 @@ async def export_report(
             temp_input_path
         )
 
-        # Планируем удаление обоих файлов (входной текстовый и выходной Excel)
+        # Планирование удаления обоих файлов (входной текстовый и выходной excel)
         # после того как FileResponse будет успешно отправлен клиенту
         background_tasks.add_task(cleanup_files, temp_input_path, report_path)
 

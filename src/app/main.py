@@ -8,9 +8,6 @@ from src.app.api.endpoints import report
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """
-    Управляет жизненным циклом тяжелых ресурсов приложения
-    """
     # Инициализация пула процессов при старте
     pool = ProcessPoolExecutor(max_workers=os.cpu_count() or 4)
     app.state.process_pool = pool
@@ -20,8 +17,8 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="API Экспорта Текстовых Отчетов",
-    description="API для экспорта статистики частотности слов из больших текстовых файлов.",
+    title="Word Frequency Analysis API",
+    description="API для экспорта статистики частотности слов из текстовых файлов.",
     lifespan=lifespan,
 )
 
